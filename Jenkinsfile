@@ -8,6 +8,7 @@ pipeline {
       }
     }
   }
+	
   stages {
     stage('Testing') {
       steps {
@@ -16,6 +17,7 @@ pipeline {
       }
     }
   }
+	
   stages {
     stage('Publish') {
       steps{
