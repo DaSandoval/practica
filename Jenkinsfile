@@ -12,7 +12,7 @@ pipeline{
     stage('Testing'){
       steps{
         sh './quickstart gradlew test -p quickstart'
-        junit './build/report/tests/test/*.html'
+        junit './build/*.xml'
       }
     }
   }
