@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Build') {
       steps{
-	      sh './quickstart/gradlew clear assemble -p quickstart'
+	      sh './quickstart/gradlew clean assemble -p quickstart'
       }
     }
 	
