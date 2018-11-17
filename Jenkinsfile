@@ -10,7 +10,7 @@ pipeline {
 	
     stage('Testing') {
       steps {
-        sh './quickstart/gradlew test'
+        sh './quickstart/gradlew clean test -p quickstart'
         junit './build/test-results/test/*.xml'
       }
     }
