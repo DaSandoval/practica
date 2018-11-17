@@ -11,7 +11,7 @@ pipeline {
     stage('Testing') {
       steps {
         sh './quickstart/gradlew test -p quickstart'
-        junit 'build/test-results/test/*.xml'
+        junit '**/test-results/test/*.xml'
       }
     }
 	
