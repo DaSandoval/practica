@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Build') {
       steps{
-	      sh './quickstart/gradlew assemble -p quickstart'
+	sh './quickstart/gradlew assemble -p quickstart'
       }
     }
 	
@@ -17,7 +17,7 @@ pipeline {
 	
     stage('Publish') {
       steps{
-        sh './quickstart/gradlew uploadArchives'
+        sh './quickstart/gradlew uploadArchives -p quickstart'
         archiveArtifacts artifacts: './repos/*.jar'
       } 
     }
