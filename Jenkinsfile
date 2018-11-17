@@ -4,13 +4,13 @@ pipeline {
   stages {
     stage('Build') {
       steps{
-	      sh './quickstart/gradlew clean assemble -p quickstart'
+	      sh './quickstart/gradlew assemble -p quickstart'
       }
     }
 	
     stage('Testing') {
       steps {
-        sh './quickstart/gradlew clean test -p quickstart'
+        sh './quickstart/gradlew test -p quickstart'
         junit './build/test-results/test/*.xml'
       }
     }
