@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'jacoco'
+apply plugin: 'org.sonarqube'
 
 version = '1.0'
 jar {
@@ -17,6 +18,8 @@ repositories {
 dependencies {
     compile group: 'commons-collections', name: 'commons-collections', version: '3.2.2'
     testCompile group: 'junit', name: 'junit', version: '4.+'
+    compile 'org.sonarsource.java:sonar-java-plugin:3.13.1'
+    compile 'org.sonarsource.sonarqube:sonar-scanner-engine:5.5-RC
 }
 
 test {
@@ -40,15 +43,9 @@ jacocoTestReport {
 
 check.dependsOn jacocoTestReport
 
-plugins {
-  id "org.sonarqube" version "2.6.1"
-}
-
-description = 'Example of SonarQube Scanner for Gradle Usage'
-version = '1.0'
-
 sonarqube {
     properties {
-        property 'sonar.projectName', 'Example of SonarQube Scanner for Gradle Usage'
+        property "sonar.projectName", "Java :: sample Portal application :: Portal application description "
+        property "sonar.projectKey", "org.sonarqube:portalApp"
     }
 }
