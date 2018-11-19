@@ -7,9 +7,9 @@ public class Person {
     private final String lastName;
     private final int age;
     private final int note;
-
     public Person(String name,String lastName, int age, int note) {
         this.name = name;
+        
         this.lastName = lastName;
         this.age = age;
         this.note = note;
@@ -31,5 +31,4 @@ public class Person {
     public int getNote(){
     	return note;
     }
-
 }
