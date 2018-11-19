@@ -31,9 +31,6 @@ uploadArchives {
     }
 }
 
-#!groovy
-// The above triggers groovy syntax highlighting in vim
-
 plugins {
   id "com.gradle.plugin-publish" version "0.9.9"
   // Eat your own dog food :)
