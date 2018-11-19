@@ -40,34 +40,18 @@ jacocoTestReport {
 
 check.dependsOn jacocoTestReport
 
-apply plugin: 'org.sonarqube'
-
 buildscript {
-    repositories {
-		 maven {url "https://plugins.gradle.org/m2/"}
-    }
-
-    dependencies {
-		classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.0.1'
-    }
+        repositories {
+                mavenLocal()
+                jcenter()
+                maven {
+                        url "https://plugins.gradle.org/m2/"
+                }
+        }
+        dependencies {
+                classpath group: "org.sonarsource.scanner.gradle", name:"sonarqube-gradle-plugin", version:"2.5"
+        }
 }
 
-sonarqube {
-    properties {
-        property "sonar.projectName", "Java :: sample Portal application :: Portal application description "
-        property "sonar.projectKey", "org.sonarqube:portalApp"
-    }
-}
-repositories {
-    mavenCentral()
-    maven { url "http://maven.springframework.org/release" }
-    maven { url "http://repo.maven.apache.org/maven2" }
-	maven {url "https://plugins.gradle.org/m2/"}
-}
-
-dependencies {
-    
-	compile 'org.sonarsource.java:sonar-java-plugin:3.13.1'
-	compile 'org.sonarsource.sonarqube:sonar-scanner-engine:5.5-RC2'
-
-}
+group = 'com.test.sonarqube.gradle'
+apply plugin: "org.sonarqube"
