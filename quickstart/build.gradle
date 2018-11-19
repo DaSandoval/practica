@@ -44,8 +44,8 @@ check.dependsOn jacocoTestReport
 sonar.language=java
 sonar.java.source=1.8
 
-sonar.sources=src/main/java,src/test/java
-sonar.java.binaries=build/classes/java/main,build/classes/java/test
+sonar.sources=src/main/java
+sonar.java.binaries=build/classes/java/main
 
 buildscript {
         repositories {
