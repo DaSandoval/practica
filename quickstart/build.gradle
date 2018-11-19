@@ -55,3 +55,4 @@ buildscript {
 
 group = 'com.test.sonarqube.gradle'
 apply plugin: "org.sonarqube"
+sonar.sources=src
