@@ -1,6 +1,6 @@
 format_version: 3
 pipelines:
-  da-quickstart-ci:
+  dsa-quickstart-ci:
     group: Application
     materials:
       repo:
