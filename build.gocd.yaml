@@ -4,7 +4,7 @@ pipelines:
     group: Application
     materials:
       repo:
-        git: https://github.com/devops-at07/DS-DEVOPS.git
+        git: https://github.com/DaSandoval/practica.git
         branch: master
         whitelist:
             - quickstart/**/*
