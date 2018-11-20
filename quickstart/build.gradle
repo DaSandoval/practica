@@ -1,6 +1,5 @@
 plugins {
   id "org.sonarqube" version "2.6.2"
-  id "org.owasp.dependencycheck" version "3.3.4"
 }
 
 apply plugin: 'java'
@@ -44,3 +43,14 @@ jacocoTestReport {
 }
 
 check.dependsOn jacocoTestReport
+
+buildscript {
+    repositorios {
+        mavenCentral ()
+    }
+    dependencias {
+        classpath 'org.owasp: dependency-check-gradle: 3.3.4'
+    }
+}
+
+aplicar el complemento: 'org.owasp.dependencycheck'
