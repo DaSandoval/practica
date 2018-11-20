@@ -45,11 +45,11 @@ buildscript {
                 mavenLocal()
                 jcenter()
                 maven {
-                        url "https://mvnrepository.com/artifact/org.sonarqube/org.sonarqube.gradle.plugin"
+                        url "https://mvnrepository.com/artifact/org.sonarsource.scanner.gradle/sonarqube-gradle-plugin"
                 }
         }
         dependencies {
-                compile group: 'org.sonarqube', name: 'org.sonarqube.gradle.plugin', version: '2.6.2', ext: 'pom'
+                compile group: 'org.sonarsource.scanner.gradle', name: 'sonarqube-gradle-plugin', version: '2.6.2'
         }
 }
 
