@@ -40,18 +40,15 @@ jacocoTestReport {
 
 check.dependsOn jacocoTestReport
 
-buildscript {
-        repositories {
-                mavenLocal()
-                jcenter()
-                maven {
-                        url "https://plugins.gradle.org/m2/"
-                }
-        }
-        dependencies {
-                classpath group: "org.sonarsource.scanner.gradle", name:"sonarqube-gradle-plugin", version:"2.5"
-        }
+node {
+  stage('SCM') {
+    git 'https://github.com/DaSandoval/practica.git'
+  }
+  stage('SonarQube analysis') {
+    withSonarQubeEnv('My SonarQube Server') {
+      // requires SonarQube Scanner for Gradle 2.1+
+      // It's important to add --info because of SONARJNKNS-281
+      sh './gradlew --info sonarqube'
+    }
+  }
 }
-
-group = 'com.test.sonarqube.gradle'
-apply plugin: "org.sonarqube"
