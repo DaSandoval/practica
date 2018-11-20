@@ -49,7 +49,7 @@ buildscript {
                 }
         }
         dependencies {
-                classpath group: "org.sonarsource.scanner.gradle", name:"sonarqube-gradle-plugin", version:"2.5"
+                compile group: 'org.sonarqube', name: 'org.sonarqube.gradle.plugin', version: '2.6.2', ext: 'pom'
         }
 }
 
