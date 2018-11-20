@@ -55,6 +55,7 @@ pipelines:
             dependency_CheckAnalyze:
               tasks:
                 - exec:
+                    working_directory: quickstart
                     command: ./gradlew
                     arguments: dependencyCheckAnalyze
               artifacts:
