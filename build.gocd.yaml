@@ -21,8 +21,8 @@ pipelines:
                       - assemble
               artifacts:
                 - build:
-                    source: webApplication/build/libs/*.jar
-                    destination: jar
+                    source: webApplication/build/libs/*.war
+                    destination: war
       - Test:
           jobs:
             Unit_Test:
