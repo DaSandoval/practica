@@ -63,7 +63,7 @@ pipelines:
                 - build:
                     source: webApplication/build/reports/**/*
                     destination: html
-
+pipelines:
   daquick-quickstart-ci:
     group: Application
     materials:
