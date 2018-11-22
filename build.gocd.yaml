@@ -1,6 +1,6 @@
 format_version: 3
 pipelines:
-  dsa-quickstart-ci:
+  daweb-quickstart-ci:
     group: Application
     materials:
       repo:
@@ -63,3 +63,27 @@ pipelines:
                 - build:
                     source: webApplication/build/reports/**/*
                     destination: html
+
+  daquick-quickstart-ci:
+    group: Application
+    materials:
+      repo:
+        git: https://github.com/devops-at07/DS-DEVOPS.git
+        branch: master
+        whitelist:
+            - quickstart/**/*
+    stages:
+      - Build:
+          jobs:
+            Building:
+              tasks:
+                - exec:
+                    working_directory: quickstart
+                    command: ./gradlew
+                    arguments:
+                      - clean
+                      - assemble
+              artifacts:
+                - build:
+                    source: quickstart/build/libs/*.jar
+                    destination: jar
