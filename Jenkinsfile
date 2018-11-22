@@ -21,11 +21,7 @@ pipeline {
         archiveArtifacts artifacts: '**/repos/*.war'
       } 
     }
-  }
-  
-  agent any
-	
-  stages{
+
     stage('Buildd'){
       steps{
         sh './quickstart/gradlew clean assemble -p quickstart'
