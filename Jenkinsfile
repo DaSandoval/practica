@@ -22,22 +22,24 @@ pipeline {
       } 
     }
   }
-
+  
+  agent any
+	
   stages{
-    stage('Build'){
+    stage('Buildd'){
       steps{
         sh './quickstart/gradlew clean assemble -p quickstart'
       }
     }
 
-    stage('Testing'){
+    stage('Testingg'){
       steps{
         sh './quickstart/gradlew test -p quickstart'
         junit '**/test-results/test/*.xml'
       }
     }
   
-    stage('Publish'){
+    stage('Publishh'){
       steps{
         sh './quickstart/gradlew uploadArchives -p quickstart'
         archiveArtifacts artifacts: '**/repos/*.jar'
