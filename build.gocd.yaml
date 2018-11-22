@@ -41,28 +41,7 @@ pipelines:
                     destination: xml
               tabs:
                 unit_test: html/index.html
-      - Code_Quality:
-          jobs:
-            Sonarqube:
-              tasks:
-                - exec:
-                    working_directory: webApplication
-                    command: ./gradlew
-                    arguments:
-                      - sonarqube
-      - owaps_vulnerability:
-          jobs:
-            dependency_CheckAnalyze:
-              tasks:
-                - exec:
-                    working_directory: webApplication
-                    command: ./gradlew
-                    arguments: 
-                      - dependencyCheckAnalyze
-              artifacts:
-                - build:
-                    source: webApplication/build/reports/**/*
-                    destination: html
+
 pipelines:
   daquick-quickstart-ci:
     group: Application
