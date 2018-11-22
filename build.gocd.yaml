@@ -7,37 +7,37 @@ pipelines:
         git: https://github.com/DaSandoval/practica.git
         branch: master
         whitelist:
-            - quickstart/**/*
+            - webApplication/**/*
     stages:
       - Build:
           jobs:
             Building:
               tasks:
                 - exec:
-                    working_directory: quickstart
+                    working_directory: webApplication
                     command: ./gradlew
                     arguments:
                       - clean
                       - assemble
               artifacts:
                 - build:
-                    source: quickstart/build/libs/*.jar
+                    source: webApplication/build/libs/*.jar
                     destination: jar
       - Test:
           jobs:
             Unit_Test:
               tasks:
                 - exec:
-                    working_directory: quickstart
+                    working_directory: webApplication
                     command: ./gradlew
                     arguments:
                       - test
               artifacts:
                 - build:
-                    source: quickstart/build/reports/tests/test/**/*
+                    source: webApplication/build/reports/tests/test/**/*
                     destination: html
                 - test:
-                    source: quickstart/build/test-results/test/*.xml
+                    source: webApplication/build/test-results/test/*.xml
                     destination: xml
               tabs:
                 unit_test: html/index.html
@@ -46,7 +46,7 @@ pipelines:
             Sonarqube:
               tasks:
                 - exec:
-                    working_directory: quickstart
+                    working_directory: webApplication
                     command: ./gradlew
                     arguments:
                       - sonarqube
@@ -55,11 +55,11 @@ pipelines:
             dependency_CheckAnalyze:
               tasks:
                 - exec:
-                    working_directory: quickstart
+                    working_directory: webApplication
                     command: ./gradlew
                     arguments: 
                       - dependencyCheckAnalyze
               artifacts:
                 - build:
-                    source: quickstart/build/reports/**/*
+                    source: webApplication/build/reports/**/*
                     destination: html
