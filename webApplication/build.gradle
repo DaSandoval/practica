@@ -5,25 +5,18 @@ plugins {
 
 apply plugin: 'jacoco'
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'org.akhikhl.gretty:gretty:2.0.0'
-    }
-}
-apply plugin: 'org.akhikhl.gretty'
-
-apply plugin: 'war'
-
 repositories {
     jcenter()
 }
 
+apply plugin: 'org.akhikhl.gretty'
+
+apply plugin: 'war'
+
 dependencies {
     compile group: 'commons-io', name: 'commons-io', version: '1.4'
     compile group: 'log4j', name: 'log4j', version: '1.2.15', ext: 'jar'
+    classpath 'org.akhikhl.gretty:gretty:2.0.0'
 }
 
 gretty {
