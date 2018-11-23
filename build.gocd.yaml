@@ -42,7 +42,7 @@ pipelines:
               tabs:
                 unit_test: html/index.html
 
-pipelines:
+pipelines quic:
   daquick-quickstart-ci:
     group: Application
     materials:
