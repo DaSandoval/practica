@@ -41,7 +41,7 @@ pipelines:
                     destination: xml
               tabs:
                 unit_test: html/index.html
-             - Code_Quality:
+      - Code_Quality:
           jobs:
             Sonarqube:
               tasks:
@@ -63,7 +63,7 @@ pipelines:
                 - build:
                     source: webApplication/build/reports/**/*
                     destination: html
-        - deploy:
+      - deploy:
           jobs:
             deploy_gradle:
               tasks:
