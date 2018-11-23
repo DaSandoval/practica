@@ -10,7 +10,7 @@ remotes {
   dev_server {
     host = '10.28.110.81'
     user = 'ubuntu'
-    identity = file("C:/Users/Admin/Desktop/DevOps/DevOps-AT07/practica/webApplication/moriakey.pem")
+    identity = file("./moriakey.pem")
   }
 }
 
