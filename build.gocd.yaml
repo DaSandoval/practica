@@ -41,8 +41,29 @@ pipelines:
                     destination: xml
               tabs:
                 unit_test: html/index.html
+             - Code_Quality:
+          jobs:
+            Sonarqube:
+              tasks:
+                - exec:
+                    working_directory: webApplication
+                    command: ./gradlew
+                    arguments:
+                      - sonarqube
+      - owaps_vulnerability:
+          jobs:
+            dependency_CheckAnalyze:
+              tasks:
+                - exec:
+                    working_directory: webApplication
+                    command: ./gradlew
+                    arguments: 
+                      - dependencyCheckAnalyze
+              artifacts:
+                - build:
+                    source: webApplication/build/reports/**/*
+                    destination: html
 
-pipelines quic:
   daquick-quickstart-ci:
     group: Application
     materials:
@@ -66,3 +87,43 @@ pipelines quic:
                 - build:
                     source: quickstart/build/libs/*.jar
                     destination: jar
+       - Test:
+          jobs:
+            Unit_Test:
+              tasks:
+                - exec:
+                    working_directory: quickstart
+                    command: ./gradlew
+                    arguments:
+                      - test
+              artifacts:
+                - build:
+                    source: quickstart/build/reports/tests/test/**/*
+                    destination: html
+                - test:
+                    source: quickstart/build/test-results/test/*.xml
+                    destination: xml
+              tabs:
+                unit_test: html/index.html
+      - Code_Quality:
+          jobs:
+            Sonarqube:
+              tasks:
+                - exec:
+                    working_directory: quickstart
+                    command: ./gradlew
+                    arguments:
+                      - sonarqube
+            OWASP:
+              tasks:
+                - exec:
+                    working_directory: quickstart
+                    command: ./gradlew
+                    arguments: 
+                      - dependencyCheckAnalyze
+              artifacts:
+                - build:
+                    source: quickstart/build/reports/**/*
+                    destination: html
+              tabs:
+                owasp: html/dependency-check-report.html     
