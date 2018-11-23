@@ -33,7 +33,7 @@ pipeline{
     stage('Testing webApplication'){
       steps{
         sh './webApplication/gradlew test -p webApplication'
-        junit '**/reports/tests/test/*.html'
+        archiveArtifacts artifacts: '**/reports/tests/test/*.html'
       }
     }
 
