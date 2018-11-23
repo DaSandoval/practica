@@ -39,15 +39,15 @@ pipeline{
 
     stage ('Security webApplication'){
       steps{
-        sh './webApplication/gradlew sonarqube'
-        sh './webApplication/gradlew dependencyCheckAnalyze'
+        sh './webApplication/gradlew sonarqube -p webApplication'
+        sh './webApplication/gradlew dependencyCheckAnalyze -p webApplication'
         archiveArtifacts artifacts: '**/build/reports/*.html'
       }
     }
 
     stage ('Deploy webApplication'){
       steps{
-        sh './webApplication/gradlew -b deploy.gradle copyWar'
+        sh './webApplication/gradlew -b deploy.gradle copyWar -p webApplication'
       }
     }
   }
